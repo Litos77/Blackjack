@@ -9,17 +9,24 @@ public class Blackjack {
         System.out.println("Do you have a knack for Black Jack?");
         System.out.println("We shall see..");
         System.out.println("..Ready? Press anything to begin!");
-        //Task 3 – Wait for the user to press enter.
-        //Task 4 – Get two random cards.
-        //       – Print them: \n You get a \n" + <randomCard> + "\n and a \n" + <randomCard>
+        // Wait for the user to press enter.
+        scan.nextLine();
 
-        //Task 5 – Print the sum of your hand value.
-        //       – print: your total is: <hand value>
-
+        // Get two random cards and print them.
+        int card1 = drawRandomCard();
+        int card2 = drawRandomCard();
+        System.out.println("\n You get a \n" + cardString(card1) + "\n and a \n" + cardString(card2))  ;
         
-        //Task 6 – Get two random cards for the dealer.
-        //       – Print: The dealer shows \n" + <first card> + "\nand has a card facing down \n" + <facedown card>
-        //       – Print: \nThe dealer's total is hidden
+        int total = Math.min(card1, 10) + Math.min(card2, 10);
+        System.out.println("Your total is: " + total);
+        
+        // Get two random cards for the dealer and print them
+        int dealerCard1 = drawRandomCard();
+        int dealerCard2 = drawRandomCard();
+        System.out.println("The dealer show \n" + cardString(dealerCard1) + "\nand has a card facing down \n" + faceDown());
+        int dealerTotal = Math.min(dealerCard1, 10) + Math.min(dealerCard2, 10);
+        System.out.println("\nThe dealer's total is hidden");
+
 
        
         //Task 8 – Keep asking the player to hit or stay (while loop).
