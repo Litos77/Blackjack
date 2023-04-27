@@ -27,6 +27,8 @@ public class Blackjack {
         int dealerTotal = Math.min(dealerCard1, 10) + Math.min(dealerCard2, 10);
         System.out.println("\nThe dealer's total is hidden");
 
+        String option = hitOrStay();
+
 
        
         //Task 8 – Keep asking the player to hit or stay (while loop).
@@ -159,15 +161,18 @@ public class Blackjack {
         "  |_____|\n";
     }
     
-    /** Task 7 – make a function that asks the user to hit or stay.
-     * Function name – hitOrStay
-     * @return (String)
-     *
-     * Inside the function:
-     *   1. Asks the user to hit or stay.
-     *   2. If the user doesn't enter "hit" or "stay", keep asking them to try again by printing:
-     *      Please write 'hit' or 'stay'
-     *   3. Returns the user's option 
-     */
+
+      public static String hitOrStay() {
+        System.out.println("Would you like to hit or stay? ");
+        String response = scan.nextLine();
+
+        while (!(response.equalsIgnoreCase("hit") || response.equalsIgnoreCase("stay"))) {
+                System.out.println("Please write hit or stay");
+                response = scan.nextLine();
+        }
+        return response;
+      }
+
+
     }
 
