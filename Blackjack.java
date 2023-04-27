@@ -27,19 +27,24 @@ public class Blackjack {
         int dealerTotal = Math.min(dealerCard1, 10) + Math.min(dealerCard2, 10);
         System.out.println("\nThe dealer's total is hidden");
 
-        String option = hitOrStay();
 
+        while (true) {
+                String option = hitOrStay();  
+                
+                if (option.equals("stay")) {
+                        break;
+                }
+                int newCard = drawRandomCard();
+                total += Math.min(newCard, 10);
+                System.out.println("\nYou get a\n" + cardString(newCard));
+                System.out.println("your new total is " + total);
 
-       
-        //Task 8 – Keep asking the player to hit or stay (while loop).
-        //       1. Every time the player hits
-        //             – draw a new card.
-        //             – calculate their new total.
-        //             – print: (new line) You get a (new line) <show new card>.
-        //             - print: your new total is <total>
-
-        //       2. Once the player stays, break the loop. 
-
+                if (total > 21) {
+                        System.out.println("Bust! Player loses");
+                        System.exit(0);
+                }
+        }
+         
         
         //For tasks 9 to 13, see the article: Blackjack Part II. 
          scan.close();
